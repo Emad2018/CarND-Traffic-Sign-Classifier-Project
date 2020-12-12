@@ -1,0 +1,5 @@
+13,Yield
+2,Speed limit (50km/h)
+25,Road work
+28,Children crossing
+33,Turn right ahead
