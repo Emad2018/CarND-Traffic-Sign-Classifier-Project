@@ -61,7 +61,7 @@ The goals / steps of this project are the following:
 
 #### 1.summary of the data set:
 
-You can download the dara form this[link](https://s3-us-west-1.amazonaws.com/udacity-selfdrivingcar/traffic-signs-data.zip)
+You can download the dara form this [link](https://s3-us-west-1.amazonaws.com/udacity-selfdrivingcar/traffic-signs-data.zip)
 
 I used the numpy library and len function to calculate summary statistics of the traffic
 signs data set:
@@ -119,16 +119,22 @@ My final model consisted of the following layers:
 #### 3.  trained the model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
 To train the model, I used using this hyperpramters:
+
 EPOCHS #=100
+
 BATCH_SIZE #=128
+
 loss = cross_entropy
+
 optimizer =adam
 
 
 #### 4. test result.
 
 My final model results were:
+
 * validation set accuracy of 93% 
+
 * test set accuracy of 90%
 
 
@@ -141,12 +147,16 @@ My final model results were:
 Here are five German traffic signs that I found on the web:
 
 <img src="test_images/1.jpg" width="820" height="248" />
-<img src="images/2.jpg" width="820" height="248" />
-<img src="images/3.jpg" width="820" height="248" />
-<img src="images/4.jpg" width="820" height="248" />
-<img src="images/5.jpg" width="820" height="248" />
 
-The first image might be difficult to classify because ...
+<img src="test_images/2.jpg" width="820" height="248" />
+
+<img src="test_images/3.jpg" width="820" height="248" />
+
+<img src="test_images/4.jpg" width="820" height="248" />
+
+<img src="test_images/5.jpg" width="820" height="248" />
+
+
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
