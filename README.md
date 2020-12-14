@@ -131,7 +131,7 @@ My final model consisted of the following layers:
 
 To train the model, I used using this hyperpramters:
 
-EPOCHS #=100
+EPOCHS #=50
 
 BATCH_SIZE #=128
 
@@ -155,7 +155,7 @@ My final model results were:
  I have started with one Convolution layer and 2 Fully connected layers and the validation set accuracy was about 70%
  by adding the second Convolution and the 3rd connected layers the model was able to have the 93% accuracy with learning rate=0.001,EPOCHS=20
  
- by changing the learning rate=0.003,EPOCHS=100 I got validation set accuracy of 96% and test set accuracy of 93%
+ by changing the learning rate=0.003,EPOCHS=50 I got validation set accuracy of 96% and test set accuracy of 93%
  
   <img src="images/model_result.png" width="820" height="248" />
  
@@ -165,7 +165,7 @@ My final model results were:
  learning rate=0.003 -->validation set accuracy of 96.4% ,test set accuracy of 93%
  
  EPOCHS=20 -->validation set accuracy of 91.4% ,test set accuracy of 90%
- EPOCHS=100 -->validation set accuracy of 96.4% ,test set accuracy of 93%
+ EPOCHS=50 -->validation set accuracy of 96.4% ,test set accuracy of 93%
  
 
 ### Test a Model on New Images
