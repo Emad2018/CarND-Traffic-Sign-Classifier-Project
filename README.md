@@ -74,20 +74,31 @@ signs data set:
 
 #### 2. Include an exploratory visualization of the dataset.
 
-In the third cell, I made an exploratory visualization of the data set showing a sample Image and It's related label 
+ Using Pandas and seaborn, I plot the dataset category count as below:
+ 
+ <img src="images/data_set_dis.png" width="820" height="248" />
+ 
+
+ I made an exploratory visualization of the data set showing a sample Image and It's related values 
 
 <img src="images/1.png" width="820" height="248" />
 
+for more Illustration for the dataset I plot the first 50 images with It's label after shuffling the data:
+
+<img src="images/dataset.png" width="820" height="248" />
 
 
 ### Design and Test a Model Architecture
 
 #### 1.  preprocessed the image data. 
+I have shuffle the data.
 
- I normalized the image data so that the data has mean zero and equal variance.
+then convert the data to gray scale to make the model foucs on the shape feature instead of the color:
 
-As a final step, I have shuffle the data.
- 
+then normalized the image data so that the data has mean zero and equal variance.
+
+
+ <img src="images/normalized.png" width="820" height="248" />
 
 
 
@@ -128,16 +139,33 @@ loss = cross_entropy
 
 optimizer =adam
 
+learning rate=0.003
 
 #### 4. test result.
 
 My final model results were:
 
-* validation set accuracy of 93% 
+* validation set accuracy of 96% 
 
-* test set accuracy of 90%
+* test set accuracy of 93%
 
 
+ I have choose this model based on alot of experments:
+ 
+ I have started with one Convolution layer and 2 Fully connected layers and the validation set accuracy was about 70%
+ by adding the second Convolution and the 3rd connected layers the model was able to have the 93% accuracy with learning rate=0.001,EPOCHS=20
+ 
+ by changing the learning rate=0.003,EPOCHS=100 I got validation set accuracy of 96% and test set accuracy of 93%
+ 
+  <img src="images/model_result.png" width="820" height="248" />
+ 
+ The hyper-parameters tuning:
+ 
+ learning rate=0.001 -->validation set accuracy of 93% ,test set accuracy of 90%
+ learning rate=0.003 -->validation set accuracy of 96.4% ,test set accuracy of 93%
+ 
+ EPOCHS=20 -->validation set accuracy of 91.4% ,test set accuracy of 90%
+ EPOCHS=100 -->validation set accuracy of 96.4% ,test set accuracy of 93%
  
 
 ### Test a Model on New Images
@@ -157,36 +185,96 @@ Here are five German traffic signs that I found on the web:
 <img src="test_images/5.jpg" width="820" height="248" />
 
 
+after converting to gray and make the normlization 
 
+<img src="images/images_test.png" width="820" height="248" />
 #### 2. the model's predictions on these new traffic signs.
 
 Here are the results of the prediction:
 
 | Image			        |     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Yield       		| Yield   									| 
-| Speed limit (50km/h     			| U-turn 										|
-| Road work					| Road work											|
-| Children crossing	      		| Bumpy Road					 				|
-| Turn right ahead			| Slippery Road      							|
+| Yield       		|    		Go straight or left							| 
+| Speed limit (50km/h     			| Speed limit (30km/h) 										|
+| Road work					| Priority road											|
+| Children crossing	      		| 	Children crossing				 				|
+| Turn right ahead			|     Ahead only							|
+| Stop			|    Speed limit (60km/h)							|
 
+The model was able to correctly guess 1 of the 6 traffic signs, which gives an accuracy of 16.7%. 
 
-The model was able to correctly guess 2 of the 5 traffic signs, which gives an accuracy of 40%. 
 
 #### 3. how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction
 
 The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+For the the  images,
 
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
+****0****
+true label Yield:
 
+predictions:
+
+Go straight or left: 99.91%
+Yield: 0.09%
+Keep right: 0.00%
+Speed limit (50km/h): 0.00%
+Speed limit (30km/h): 0.00%
+
+****1****
+true label Speed limit (50km/h):
+
+predictions:
+
+Speed limit (30km/h): 81.23%
+Speed limit (70km/h): 18.77%
+Speed limit (50km/h): 0.00%
+Speed limit (80km/h): 0.00%
+Wild animals crossing: 0.00%
+
+****2****
+true label Road work:
+
+predictions:
+
+Priority road: 84.70%
+No entry: 15.29%
+Speed limit (30km/h): 0.00%
+Speed limit (60km/h): 0.00%
+End of no passing: 0.00%
+
+****3****
+true label Children crossing:
+
+predictions:
+
+Children crossing: 100.00%
+Traffic signals: 0.00%
+Beware of ice/snow: 0.00%
+Road narrows on the right: 0.00%
+Slippery road: 0.00%
+
+****4****
+true label Turn right ahead:
+
+predictions:
+
+Ahead only: 99.89%
+Turn left ahead: 0.11%
+No passing: 0.00%
+Yield: 0.00%
+Priority road: 0.00%
+
+****5****
+true label Stop:
+
+predictions:
+
+Speed limit (60km/h): 99.99%
+Turn left ahead: 0.01%
+End of no passing: 0.00%
+No passing: 0.00%
+Priority road: 0.00%
 
 
 
